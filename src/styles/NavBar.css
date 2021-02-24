@@ -10,13 +10,24 @@ img {
     height: 50px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .navbar-links {
     margin: 0;
     padding: 0;
+    
 }
 
 .navbar-links-item {
     margin: 0;
     padding: 10px;
     display: inline-block;
+    
+}
+
+.link {
+    color: black;
+    text-decoration: none;
 }
