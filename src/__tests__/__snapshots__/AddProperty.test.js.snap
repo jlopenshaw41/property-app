@@ -3,7 +3,7 @@
 exports[`Properties renders as expected 1`] = `
 <DocumentFragment>
   <div>
-    Properties page
+    Add property
   </div>
 </DocumentFragment>
 `;
