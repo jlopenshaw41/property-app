@@ -2,6 +2,40 @@
 
 exports[`NavBar renders as expected 1`] = `
 <DocumentFragment>
-  <div />
+  <div
+    class="navbar"
+  >
+    <img
+      alt="Logo"
+      data-testid="logo"
+      src="logo.png"
+    />
+    <div
+      class="navbar-links"
+    >
+      <ul>
+        <li
+          class="navbar-links-item"
+          data-testid="nav-link-1"
+        >
+          <a
+            href="www.google.com"
+          >
+            View properties
+          </a>
+        </li>
+        <li
+          class="navbar-links-item"
+          data-testid="nav-link-2"
+        >
+          <a
+            href="www.google.com"
+          >
+            Add a property
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </DocumentFragment>
 `;
