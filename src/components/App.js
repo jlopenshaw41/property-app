@@ -10,12 +10,8 @@ const App = () => {
     <div className="App">
       <NavBar />
       <Switch>
-        <Route exact path="/">
-          <Properties />
-        </Route>
-        <Route exact path="/add-property">
-          <AddProperty />
-        </Route>
+        <Route exact path="/" component={Properties} />
+        <Route exact path="/add-property" component={AddProperty} />
       </Switch>
       <h2>Property App</h2>
     </div>
