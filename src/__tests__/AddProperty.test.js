@@ -20,6 +20,12 @@ describe("Properties", () => {
     expect(propertyTitleInput).toBeTruthy();
   });
 
+  it("renders type dropdown list", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const typeDropdown = getByTestId("type-dropdown");
+    expect(typeDropdown).toBeTruthy();
+  });
+
   it("renders city dropdown list", () => {
     const { getByTestId } = render(<AddProperty />);
     const cityDropdown = getByTestId("city-dropdown");
