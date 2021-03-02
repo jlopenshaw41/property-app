@@ -22,7 +22,8 @@ exports[`App renders as expected 1`] = `
             data-testid="nav-link-1"
           >
             <a
-              href="www.google.com"
+              class="link"
+              href="/"
             >
               View properties
             </a>
@@ -32,13 +33,17 @@ exports[`App renders as expected 1`] = `
             data-testid="nav-link-2"
           >
             <a
-              href="www.google.com"
+              class="link"
+              href="/add-property"
             >
               Add a property
             </a>
           </li>
         </ul>
       </div>
+    </div>
+    <div>
+      Properties page
     </div>
     <h2>
       Property App

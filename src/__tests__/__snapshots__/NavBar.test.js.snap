@@ -19,7 +19,8 @@ exports[`NavBar renders as expected 1`] = `
           data-testid="nav-link-1"
         >
           <a
-            href="www.google.com"
+            class="link"
+            href="/"
           >
             View properties
           </a>
@@ -29,7 +30,8 @@ exports[`NavBar renders as expected 1`] = `
           data-testid="nav-link-2"
         >
           <a
-            href="www.google.com"
+            class="link"
+            href="/add-property"
           >
             Add a property
           </a>
