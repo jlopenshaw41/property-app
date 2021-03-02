@@ -13,4 +13,16 @@ describe("Properties", () => {
     const submitButton = getByTestId("submit-button");
     expect(submitButton).toBeTruthy();
   });
+
+  it("renders property title input", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const propertyTitleInput = getByTestId("property-title-input");
+    expect(propertyTitleInput).toBeTruthy();
+  });
+
+  it("renders city dropdown list", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const cityDropdown = getByTestId("city-dropdown");
+    expect(cityDropdown).toBeTruthy();
+  });
 });

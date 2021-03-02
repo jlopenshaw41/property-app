@@ -6,6 +6,49 @@ exports[`Properties renders as expected 1`] = `
     class="AddProperty"
   >
     <form>
+      <label
+        for="title"
+      >
+        Property title:
+        <input
+          data-testid="property-title-input"
+          id="title"
+          name="title"
+          type="text"
+          value=""
+        />
+      </label>
+      <label
+        for="city"
+      >
+        City:
+        <select
+          data-testid="city-dropdown"
+          id="city"
+          name="city"
+        >
+          <option
+            value="Manchester"
+          >
+            Manchester
+          </option>
+          <option
+            value="Leeds"
+          >
+            Leeds
+          </option>
+          <option
+            value="Sheffield"
+          >
+            Sheffield
+          </option>
+          <option
+            value="Liverpool"
+          >
+            Liverpool
+          </option>
+        </select>
+      </label>
       <button
         data-testid="submit-button"
         type="submit"
