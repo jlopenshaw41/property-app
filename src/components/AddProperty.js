@@ -14,19 +14,31 @@ const AddProperty = () => {
       title: "",
       type: "",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
   const [fields, setFields] = useState(initialState.fields);
+  const [alert, setAlert] = useState(initialState.alert);
 
   const handleAddProperty = (event) => {
     event.preventDefault();
+    setAlert({ message: "", isSuccess: false });
 
     axios
       .post("http://localhost:4000/api/v1/PropertyListing", fields)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
+        setAlert({
+          message: "Property added.",
+          isSuccess: true,
+        });
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later",
+          isSuccess: false,
+        });
       });
   };
 
@@ -41,7 +53,7 @@ const AddProperty = () => {
 
   return (
     <div className="AddProperty">
-      <Alert message="Error!" />
+      <Alert message={alert.message} success={alert.isSuccess} />
       <form onSubmit={handleAddProperty}>
         <div>
           <label htmlFor="title">

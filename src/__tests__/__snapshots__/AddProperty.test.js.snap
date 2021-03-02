@@ -5,11 +5,6 @@ exports[`AddProperty renders as expected 1`] = `
   <div
     class="AddProperty"
   >
-    <div
-      class="Alert"
-    >
-      Error!
-    </div>
     <form>
       <div>
         <label
