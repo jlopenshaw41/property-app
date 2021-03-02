@@ -2,8 +2,17 @@
 
 exports[`Properties renders as expected 1`] = `
 <DocumentFragment>
-  <div>
-    Add property page
+  <div
+    class="AddProperty"
+  >
+    <form>
+      <button
+        data-testid="submit-button"
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
   </div>
 </DocumentFragment>
 `;

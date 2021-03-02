@@ -7,4 +7,10 @@ describe("Properties", () => {
     const { asFragment } = render(<AddProperty />);
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it("renders a submit button", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const submitButton = getByTestId("submit-button");
+    expect(submitButton).toBeTruthy();
+  });
 });
