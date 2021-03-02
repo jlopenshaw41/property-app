@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Alert = () => {
-  return (
-    <>
-      <p>Error!</p>
-    </>
-  );
+const Alert = ({ message }) => {
+  return <div className="Alert">{message}</div>;
+};
+
+Alert.propTypes = {
+  message: PropTypes.string.isRequired,
 };
 
 export default Alert;

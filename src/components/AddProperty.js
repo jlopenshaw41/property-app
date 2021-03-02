@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/AddProperty.css";
 import axios from "axios";
+import Alert from "./Alert";
 
 const AddProperty = () => {
   const initialState = {
@@ -40,6 +41,7 @@ const AddProperty = () => {
 
   return (
     <div className="AddProperty">
+      <Alert message="Error!" />
       <form onSubmit={handleAddProperty}>
         <div>
           <label htmlFor="title">
