@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import "../styles/AddProperty.css";
 
 const AddProperty = () => {
-  const initialState = { fields: { title: "", city: "Manchester" } };
+  const initialState = {
+    fields: {
+      bedrooms: 0,
+      bathrooms: 0,
+      city: "Manchester",
+      email: "",
+      price: 0,
+      title: "",
+      type: "",
+    },
+  };
   const [fields, setFields] = useState(initialState.fields);
 
   const handleAddProperty = (event) => {
