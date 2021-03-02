@@ -15,6 +15,7 @@ exports[`Properties renders as expected 1`] = `
             data-testid="property-title-input"
             id="title"
             name="title"
+            placeholder="e.g. 5 bedroom detached house for sale"
             type="text"
             value=""
           />
@@ -78,8 +79,9 @@ exports[`Properties renders as expected 1`] = `
             id="bedrooms"
             min="0"
             name="bedrooms"
+            placeholder="0"
             type="number"
-            value=""
+            value="0"
           />
         </label>
       </div>
@@ -93,8 +95,9 @@ exports[`Properties renders as expected 1`] = `
             id="bathrooms"
             min="0"
             name="bathrooms"
+            placeholder="0"
             type="number"
-            value=""
+            value="0"
           />
         </label>
       </div>
@@ -108,8 +111,9 @@ exports[`Properties renders as expected 1`] = `
             id="price"
             min="0"
             name="price"
+            placeholder="0"
             type="number"
-            value=""
+            value="0"
           />
         </label>
       </div>
@@ -155,6 +159,7 @@ exports[`Properties renders as expected 1`] = `
             data-testid="email-input"
             id="email"
             name="email"
+            placeholder="e.g. name@email.co.uk"
             type="email"
             value=""
           />
