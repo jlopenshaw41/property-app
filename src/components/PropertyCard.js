@@ -23,7 +23,9 @@ const PropertyCard = (props) => {
         {price}
       </div>
       <div className="property-card-city">{city}</div>
-      <div className="property-card-email">{email}</div>
+      <div className="property-card-email">
+        <a href={`mailto:${email}`}>{email}</a>
+      </div>
     </div>
   );
 };
