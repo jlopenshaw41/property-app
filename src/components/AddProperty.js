@@ -30,6 +30,7 @@ const AddProperty = () => {
               type="text"
               name="title"
               id="title"
+              placeholder="e.g. 5 bedroom detached house for sale"
               value={fields.title}
               onChange={handleFieldChange}
             />
@@ -56,6 +57,51 @@ const AddProperty = () => {
           </label>
         </div>
         <div>
+          <label htmlFor="bedrooms">
+            Bedrooms:
+            <input
+              data-testid="bedrooms-input"
+              type="number"
+              id="bedrooms"
+              name="bedrooms"
+              placeholder="0"
+              value={fields.bedrooms}
+              onChange={handleFieldChange}
+              min="0"
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="bathrooms">
+            Bathrooms:
+            <input
+              data-testid="bathrooms-input"
+              type="number"
+              id="bathrooms"
+              name="bathrooms"
+              placeholder="0"
+              value={fields.bathrooms}
+              onChange={handleFieldChange}
+              min="0"
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="price">
+            Price (£):
+            <input
+              data-testid="price-input"
+              type="number"
+              id="price"
+              name="price"
+              placeholder="0"
+              value={fields.price}
+              onChange={handleFieldChange}
+              min="0"
+            />
+          </label>
+        </div>
+        <div>
           <label htmlFor="city">
             City:
             <select
@@ -70,6 +116,20 @@ const AddProperty = () => {
               <option value="Sheffield">Sheffield</option>
               <option value="Liverpool">Liverpool</option>
             </select>
+          </label>
+        </div>
+        <div>
+          <label htmlFor="email">
+            Contact email:
+            <input
+              data-testid="email-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="e.g. name@email.co.uk"
+              value={fields.email}
+              onChange={handleFieldChange}
+            />
           </label>
         </div>
         <button type="submit" data-testid="submit-button">

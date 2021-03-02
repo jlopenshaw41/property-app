@@ -26,9 +26,33 @@ describe("Properties", () => {
     expect(typeDropdown).toBeTruthy();
   });
 
+  it("renders bedrooms input", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const bedroomsInput = getByTestId("bedrooms-input");
+    expect(bedroomsInput).toBeTruthy();
+  });
+
+  it("renders bathrooms input", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const bathroomsInput = getByTestId("bathrooms-input");
+    expect(bathroomsInput).toBeTruthy();
+  });
+
+  it("renders price input", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const priceInput = getByTestId("price-input");
+    expect(priceInput).toBeTruthy();
+  });
+
   it("renders city dropdown list", () => {
     const { getByTestId } = render(<AddProperty />);
     const cityDropdown = getByTestId("city-dropdown");
     expect(cityDropdown).toBeTruthy();
+  });
+
+  it("renders contact email input", () => {
+    const { getByTestId } = render(<AddProperty />);
+    const emailInput = getByTestId("email-input");
+    expect(emailInput).toBeTruthy();
   });
 });

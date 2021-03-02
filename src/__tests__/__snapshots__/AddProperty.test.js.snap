@@ -70,6 +70,51 @@ exports[`Properties renders as expected 1`] = `
       </div>
       <div>
         <label
+          for="bedrooms"
+        >
+          Bedrooms:
+          <input
+            data-testid="bedrooms-input"
+            id="bedrooms"
+            min="0"
+            name="bedrooms"
+            type="number"
+            value=""
+          />
+        </label>
+      </div>
+      <div>
+        <label
+          for="bathrooms"
+        >
+          Bathrooms:
+          <input
+            data-testid="bathrooms-input"
+            id="bathrooms"
+            min="0"
+            name="bathrooms"
+            type="number"
+            value=""
+          />
+        </label>
+      </div>
+      <div>
+        <label
+          for="price"
+        >
+          Price (£):
+          <input
+            data-testid="price-input"
+            id="price"
+            min="0"
+            name="price"
+            type="number"
+            value=""
+          />
+        </label>
+      </div>
+      <div>
+        <label
           for="city"
         >
           City:
@@ -99,6 +144,20 @@ exports[`Properties renders as expected 1`] = `
               Liverpool
             </option>
           </select>
+        </label>
+      </div>
+      <div>
+        <label
+          for="email"
+        >
+          Contact email:
+          <input
+            data-testid="email-input"
+            id="email"
+            name="email"
+            type="email"
+            value=""
+          />
         </label>
       </div>
       <button
