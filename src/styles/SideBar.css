@@ -1,0 +1,19 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-right: 1px solid gray; 
+}
+
+.search-form {
+    padding: 5px;
+}
+
+.link {
+    padding: 5px;
+}
+
+.sidebar p {
+    padding: 5px;
+    font-weight: bold;
+}
