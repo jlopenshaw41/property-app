@@ -42,55 +42,9 @@ exports[`App renders as expected 1`] = `
         </ul>
       </div>
     </div>
-    <div>
-      Properties page
-      <div
-        class="property-card"
-      >
-        <div
-          class="property-card-title"
-        >
-          Example property text
-        </div>
-        <div
-          class="property-card-type"
-        >
-          Cottage
-        </div>
-        <div
-          class="property-card-bedrooms"
-          data-testid="property-card-bedrooms"
-        >
-          3
-        </div>
-        <div
-          class="property-card-bathrooms"
-          data-testid="property-card-bathrooms"
-        >
-          2
-        </div>
-        <div
-          class="property-card-price"
-          data-testid="property-card-price"
-        >
-          300000
-        </div>
-        <div
-          class="property-card-city"
-        >
-          Manchester
-        </div>
-        <div
-          class="property-card-email"
-        >
-          <a
-            href="mailto:email@address.com"
-          >
-            email@address.com
-          </a>
-        </div>
-      </div>
-    </div>
+    <div
+      class="properties"
+    />
     <h2>
       Property App
     </h2>
