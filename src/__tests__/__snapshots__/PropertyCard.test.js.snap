@@ -41,7 +41,11 @@ exports[`PropertyCard renders as expected 1`] = `
     <div
       class="property-card-email"
     >
-      email@address.com
+      <a
+        href="mailto:email@address.com"
+      >
+        email@address.com
+      </a>
     </div>
   </div>
 </DocumentFragment>
