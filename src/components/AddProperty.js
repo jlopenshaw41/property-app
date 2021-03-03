@@ -97,7 +97,6 @@ const AddProperty = () => {
               type="number"
               id="bedrooms"
               name="bedrooms"
-              placeholder="0"
               value={fields.bedrooms}
               onChange={handleFieldChange}
               min="0"
@@ -112,7 +111,6 @@ const AddProperty = () => {
               type="number"
               id="bathrooms"
               name="bathrooms"
-              placeholder="0"
               value={fields.bathrooms}
               onChange={handleFieldChange}
               min="0"
@@ -127,7 +125,6 @@ const AddProperty = () => {
               type="number"
               id="price"
               name="price"
-              placeholder="0"
               value={fields.price}
               onChange={handleFieldChange}
               min="0"
