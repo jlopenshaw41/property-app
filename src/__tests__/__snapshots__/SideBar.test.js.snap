@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar renders as expected 1`] = `
+<DocumentFragment>
+  <div>
+    <a
+      class="link"
+      href="/?query={\\"city\\": \\"Manchester\\"}"
+    />
+    <a
+      class="link"
+      href="/?query={\\"city\\": \\"Leeds\\"}"
+    />
+    <a
+      class="link"
+      href="/?query={\\"city\\": \\"Sheffield\\"}"
+    />
+    <a
+      class="link"
+      href="/?query={\\"city\\": \\"Liverpool\\"}"
+    />
+  </div>
+</DocumentFragment>
+`;
