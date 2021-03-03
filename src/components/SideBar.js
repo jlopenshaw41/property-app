@@ -46,13 +46,13 @@ const SideBar = () => {
       </Link>
       <Link
         className="link"
-        to={buildQueryString("sort", { price: -1 }, search)}
+        to={buildQueryString("sort", { price: 1 }, search)}
       >
         Sort by price (lowest to highest)
       </Link>
       <Link
         className="link"
-        to={buildQueryString("sort", { price: 1 }, search)}
+        to={buildQueryString("sort", { price: -1 }, search)}
       >
         Sort by price (highest to lowest)
       </Link>
