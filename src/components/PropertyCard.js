@@ -3,7 +3,18 @@ import PropTypes from "prop-types";
 import "../styles/PropertyCard.css";
 
 const PropertyCard = (props) => {
-  const { title, type, bedrooms, bathrooms, price, city, email } = props;
+  const {
+    _id,
+    title,
+    type,
+    bedrooms,
+    bathrooms,
+    price,
+    city,
+    email,
+    userId,
+    onSaveProperty,
+  } = props;
   return (
     <div className="property-card">
       <div className="property-card-title">{title}</div>
@@ -27,11 +38,19 @@ const PropertyCard = (props) => {
       <div className="property-card-email">
         <a href={`mailto:${email}`}>{email}</a>
       </div>
+      {userId && (
+        <div className="save-button">
+          <button type="button" onClick={() => onSaveProperty(_id)}>
+            Save
+          </button>
+        </div>
+      )}
     </div>
   );
 };
 
 PropertyCard.propTypes = {
+  _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   bedrooms: PropTypes.number.isRequired,
@@ -39,6 +58,8 @@ PropertyCard.propTypes = {
   price: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+  onSaveProperty: PropTypes.func.isRequired,
 };
 
 export default PropertyCard;

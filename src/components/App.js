@@ -21,7 +21,11 @@ const App = () => {
     <div className="App">
       <NavBar onLogin={handleLogin} userId={userId} onLogout={handleLogout} />
       <Switch>
-        <Route exact path="/" component={Properties} />
+        <Route
+          exact
+          path="/"
+          render={(props) => <Properties {...props} userId={userId} />}
+        />
         <Route exact path="/add-property" component={AddProperty} />
       </Switch>
       <h2>Property App</h2>
