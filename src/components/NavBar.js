@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/NavBar.css";
+import FacebookLogin from "react-facebook-login";
+import PropTypes from "prop-types";
 import logo from "../images/logo.png";
 
-const NavBar = () => {
+const NavBar = ({ onLogin, userId, onLogout }) => {
   return (
     <div className="navbar">
       <img src={logo} alt="Logo" data-testid="logo" />
@@ -20,9 +22,29 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
+        {userId ? (
+          <button type="button" onClick={onLogout}>
+            Sign out
+          </button>
+        ) : (
+          <FacebookLogin
+            appId="157885659499807"
+            autoLoad
+            fields="name,email,picture"
+            callback={onLogin}
+            cssClass="my-facebook-button-class"
+            icon="fa-facebook"
+          />
+        )}
       </div>
     </div>
   );
+};
+
+NavBar.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+  userId: PropTypes.number.isRequired,
+  onLogout: PropTypes.func.isRequired,
 };
 
 export default NavBar;
