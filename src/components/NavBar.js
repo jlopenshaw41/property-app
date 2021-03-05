@@ -29,7 +29,6 @@ const NavBar = ({ onLogin, userId, onLogout }) => {
         ) : (
           <FacebookLogin
             appId="157885659499807"
-            autoLoad
             fields="name,email,picture"
             callback={onLogin}
             cssClass="my-facebook-button-class"
