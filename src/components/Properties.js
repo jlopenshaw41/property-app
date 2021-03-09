@@ -59,6 +59,7 @@ const Properties = ({ userId }) => {
         {properties.map((property) => (
           <PropertyCard
             key={property._id}
+            _id={property._id}
             title={property.title}
             type={property.type}
             bathrooms={property.bathrooms}
@@ -76,7 +77,7 @@ const Properties = ({ userId }) => {
 };
 
 Properties.propTypes = {
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
 };
 
 export default Properties;

@@ -4,6 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import Properties from "./Properties";
 import AddProperty from "./AddProperty";
+import SavedProperties from "./SavedProperties";
+import PermissionDenied from "./PermissionDenied";
 
 const App = () => {
   const [userId, setUserId] = useState("");
@@ -27,8 +29,12 @@ const App = () => {
           render={(props) => <Properties {...props} userId={userId} />}
         />
         <Route exact path="/add-property" component={AddProperty} />
+        <Route
+          exact
+          path="/saved-properties"
+          render={() => (userId ? <SavedProperties /> : <PermissionDenied />)}
+        />
       </Switch>
-      <h2>Property App</h2>
     </div>
   );
 };

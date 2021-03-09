@@ -15,6 +15,7 @@ const PropertyCard = (props) => {
     userId,
     onSaveProperty,
   } = props;
+
   return (
     <div className="property-card">
       <div className="property-card-title">{title}</div>
@@ -53,9 +54,9 @@ PropertyCard.propTypes = {
   _id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  bedrooms: PropTypes.number.isRequired,
-  bathrooms: PropTypes.number.isRequired,
-  price: PropTypes.number.isRequired,
+  bedrooms: PropTypes.string.isRequired,
+  bathrooms: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
