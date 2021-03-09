@@ -2,10 +2,22 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import PropertyCard from "./PropertyCard";
 import Alert from "./Alert";
-import "../styles/Properties.css";
 import SideBar from "./SideBar";
+import Hero from "./Hero";
+
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const PropertiesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 const Properties = ({ userId }) => {
   const [properties, setProperties] = useState([]);
@@ -53,9 +65,10 @@ const Properties = ({ userId }) => {
   };
 
   return (
-    <div className="properties-page">
-      <SideBar />
-      <div className="properties">
+    <Main>
+      <Hero />
+      <PropertiesContainer>
+        <SideBar />
         {properties.map((property) => (
           <PropertyCard
             key={property._id}
@@ -71,8 +84,8 @@ const Properties = ({ userId }) => {
             onSaveProperty={handleSaveProperty}
           />
         ))}
-      </div>
-    </div>
+      </PropertiesContainer>
+    </Main>
   );
 };
 

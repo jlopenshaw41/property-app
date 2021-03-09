@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Facebook } from "@styled-icons/fa-brands";
+import { FacebookF } from "@styled-icons/fa-brands";
 import logo from "../images/logo.png";
 
 const NavContainer = styled.div`
@@ -12,6 +12,10 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  width: 100%;
 `;
 
 const Logo = styled.img`
@@ -20,6 +24,7 @@ const Logo = styled.img`
 
 const NavList = styled.ul`
   list-style-type: none;
+  margin: 0;
 `;
 
 const NavBarLinks = styled.div`
@@ -34,7 +39,9 @@ const NavBarLinksItem = styled.li`
 `;
 
 const StyledLink = styled(Link)`
-  color: black;
+  color: #404040;
+  font-weight: 350;
+  letter-spacing: 0.05em;
   text-decoration: none;
 `;
 
@@ -47,12 +54,14 @@ const StyledButton = styled.button`
   font-size: 1rem;
   font-weight: 300;
   margin: 10px;
+  padding: 8px;
 `;
 
-const FacebookIcon = styled(Facebook)`
-  height: 16px;
-  padding: 2px;
-  margin: 2px;
+const FacebookIcon = styled(FacebookF)`
+  height: 1.1rem;
+  padding-bottom: 3px;
+  margin-right: 8px;
+  margin-left: 5px;
   color: white;
 `;
 

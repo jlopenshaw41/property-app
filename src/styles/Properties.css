@@ -1,9 +1,0 @@
-.properties-page {
-    display: flex;
-}
-
-.properties {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
