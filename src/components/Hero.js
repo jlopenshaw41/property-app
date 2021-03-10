@@ -10,7 +10,7 @@ const HeroText = styled.div`
   position: absolute;
   padding: 50px;
   bottom: 35%;
-  z-index: 10;
+  z-index: 3;
   background-color: rgba(255, 255, 255, 0.85);
 `;
 
@@ -20,7 +20,7 @@ const HeroContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  margin-top: 65px;
+  margin-top: 55px;
 `;
 
 const Title = styled.h1`

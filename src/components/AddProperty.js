@@ -1,7 +1,29 @@
 import React, { useState } from "react";
-import "../styles/AddProperty.css";
+import styled from "styled-components";
 import axios from "axios";
 import Alert from "./Alert";
+
+const AddPropertyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 58px;
+  padding: 100px;
+`;
+
+const AlertContainer = styled.div`
+  border: 1px solid red;
+  width: 33%;
+  padding: 30px;
+  height: 50px;
+`;
+
+const StyledForm = styled.form`
+  border: 1px solid red;
+  padding: 30px;
+  width: 33%;
+`;
 
 const AddProperty = () => {
   const initialState = {
@@ -52,9 +74,11 @@ const AddProperty = () => {
   };
 
   return (
-    <div className="AddProperty">
-      <Alert message={alert.message} success={alert.isSuccess} />
-      <form onSubmit={handleAddProperty}>
+    <AddPropertyContainer className="AddProperty">
+      <AlertContainer>
+        <Alert message={alert.message} success={alert.isSuccess} />
+      </AlertContainer>
+      <StyledForm onSubmit={handleAddProperty}>
         <div>
           <label htmlFor="title">
             Property title:
@@ -165,8 +189,8 @@ const AddProperty = () => {
         <button type="submit" data-testid="submit-button">
           Add
         </button>
-      </form>
-    </div>
+      </StyledForm>
+    </AddPropertyContainer>
   );
 };
 

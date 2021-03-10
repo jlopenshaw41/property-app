@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import qs from "qs";
-import "../styles/SideBar.css";
+import styled from "styled-components";
 
 const buildQueryString = (operation, valueObj, search) => {
   const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
@@ -20,6 +20,28 @@ const buildQueryString = (operation, valueObj, search) => {
   });
 };
 
+const StyledSideBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-right: 1px solid gray;
+  width: 20%;
+`;
+
+const StyledSearchForm = styled.form`
+  padding: 5px;
+`;
+
+const SideBarLink = styled(Link)`
+  padding: 5px;
+`;
+
+const SideBarHeading = styled.h2`
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+`;
+
 const SideBar = () => {
   const [searchText, setSearchText] = useState("");
   const { search } = useLocation();
@@ -37,8 +59,8 @@ const SideBar = () => {
   };
 
   return (
-    <div className="sidebar">
-      <form className="search-form" onSubmit={handleSearch}>
+    <StyledSideBar className="sidebar">
+      <StyledSearchForm className="search-form" onSubmit={handleSearch}>
         <label htmlFor="search-input">
           <input
             type="text"
@@ -47,46 +69,46 @@ const SideBar = () => {
           />
         </label>
         <button type="submit">Search</button>
-      </form>
-      <p>Filter by:</p>
-      <Link
+      </StyledSearchForm>
+      <SideBarHeading>Filter by:</SideBarHeading>
+      <SideBarLink
         className="link"
         to={buildQueryString("query", { city: "Manchester" }, search)}
       >
         Manchester
-      </Link>
-      <Link
+      </SideBarLink>
+      <SideBarLink
         className="link"
         to={buildQueryString("query", { city: "Leeds" }, search)}
       >
         Leeds
-      </Link>
-      <Link
+      </SideBarLink>
+      <SideBarLink
         className="link"
         to={buildQueryString("query", { city: "Sheffield" }, search)}
       >
         Sheffield
-      </Link>
-      <Link
+      </SideBarLink>
+      <SideBarLink
         className="link"
         to={buildQueryString("query", { city: "Liverpool" }, search)}
       >
         Liverpool
-      </Link>
-      <p>Sort by:</p>
-      <Link
+      </SideBarLink>
+      <SideBarHeading>Sort by:</SideBarHeading>
+      <SideBarLink
         className="link"
         to={buildQueryString("sort", { price: 1 }, search)}
       >
         Sort by price (lowest to highest)
-      </Link>
-      <Link
+      </SideBarLink>
+      <SideBarLink
         className="link"
         to={buildQueryString("sort", { price: -1 }, search)}
       >
         Sort by price (highest to lowest)
-      </Link>
-    </div>
+      </SideBarLink>
+    </StyledSideBar>
   );
 };
 

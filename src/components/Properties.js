@@ -15,8 +15,14 @@ const Main = styled.div`
 
 const PropertiesContainer = styled.div`
   display: flex;
+`;
+
+const PropertyCardsContainer = styled.div`
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
   flex-wrap: wrap;
-  justify-content: center;
+  padding: 30px;
 `;
 
 const Properties = ({ userId }) => {
@@ -65,25 +71,27 @@ const Properties = ({ userId }) => {
   };
 
   return (
-    <Main className="here-it-is">
+    <Main>
       <Hero />
-      <PropertiesContainer>
+      <PropertiesContainer className="properties-container">
         <SideBar />
-        {properties.map((property) => (
-          <PropertyCard
-            key={property._id}
-            _id={property._id}
-            title={property.title}
-            type={property.type}
-            bathrooms={property.bathrooms}
-            bedrooms={property.bedrooms}
-            price={property.price}
-            city={property.city}
-            email={property.email}
-            userId={userId}
-            onSaveProperty={handleSaveProperty}
-          />
-        ))}
+        <PropertyCardsContainer>
+          {properties.map((property) => (
+            <PropertyCard
+              key={property._id}
+              _id={property._id}
+              title={property.title}
+              type={property.type}
+              bathrooms={property.bathrooms}
+              bedrooms={property.bedrooms}
+              price={property.price}
+              city={property.city}
+              email={property.email}
+              userId={userId}
+              onSaveProperty={handleSaveProperty}
+            />
+          ))}
+        </PropertyCardsContainer>
       </PropertiesContainer>
     </Main>
   );
