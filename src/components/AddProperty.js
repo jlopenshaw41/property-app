@@ -48,7 +48,6 @@ const AddProperty = () => {
   const handleAddProperty = (event) => {
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
-    console.log(fields);
 
     axios
       .post("http://localhost:4000/api/v1/PropertyListing", fields)

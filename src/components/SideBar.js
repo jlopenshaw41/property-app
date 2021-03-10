@@ -34,6 +34,10 @@ const StyledSearchForm = styled.form`
 
 const SideBarLink = styled(Link)`
   padding: 5px;
+  color: #404040;
+  font-weight: 350;
+  letter-spacing: 0.05em;
+  text-decoration: none;
 `;
 
 const SideBarHeading = styled.h2`
@@ -70,43 +74,58 @@ const SideBar = () => {
         </label>
         <button type="submit">Search</button>
       </StyledSearchForm>
-      <SideBarHeading>Filter by:</SideBarHeading>
+      <SideBarHeading>Filter by region:</SideBarHeading>
       <SideBarLink
         className="link"
-        to={buildQueryString("query", { city: "Manchester" }, search)}
+        to={buildQueryString("query", { region: "North West" }, search)}
       >
-        Manchester
+        North West
       </SideBarLink>
       <SideBarLink
         className="link"
-        to={buildQueryString("query", { city: "Leeds" }, search)}
+        to={buildQueryString("query", { region: "North East" }, search)}
       >
-        Leeds
+        North East
       </SideBarLink>
       <SideBarLink
         className="link"
-        to={buildQueryString("query", { city: "Sheffield" }, search)}
+        to={buildQueryString("query", { region: "Midlands" }, search)}
       >
-        Sheffield
+        Midlands
       </SideBarLink>
       <SideBarLink
         className="link"
-        to={buildQueryString("query", { city: "Liverpool" }, search)}
+        to={buildQueryString("query", { region: "East" }, search)}
       >
-        Liverpool
+        East
+      </SideBarLink>
+      <SideBarLink
+        className="link"
+        to={buildQueryString("query", { region: "South East" }, search)}
+      >
+        South East
+      </SideBarLink>
+      <SideBarLink
+        className="link"
+        to={buildQueryString("query", { region: "South West" }, search)}
+      >
+        South West
+      </SideBarLink>
+      <SideBarLink className="link" to="/">
+        All regions
       </SideBarLink>
       <SideBarHeading>Sort by:</SideBarHeading>
       <SideBarLink
         className="link"
         to={buildQueryString("sort", { price: 1 }, search)}
       >
-        Sort by price (lowest to highest)
+        Price (ascending)
       </SideBarLink>
       <SideBarLink
         className="link"
         to={buildQueryString("sort", { price: -1 }, search)}
       >
-        Sort by price (highest to lowest)
+        Price (descending)
       </SideBarLink>
     </StyledSideBar>
   );

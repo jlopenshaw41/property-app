@@ -31,7 +31,7 @@ const PropertyCard = (props) => {
       <ImgContainer>
         <StyledImg src={image} alt="" />
       </ImgContainer>
-      <div className="property-card-title">{title}/</div>
+      <div className="property-card-title">{title}</div>
       <div className="property-card-type">{type}</div>
       <div
         className="property-card-bedrooms"
@@ -70,7 +70,7 @@ PropertyCard.propTypes = {
   type: PropTypes.string.isRequired,
   bedrooms: PropTypes.string.isRequired,
   bathrooms: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   region: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,

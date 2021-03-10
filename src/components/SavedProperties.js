@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
 import Alert from "./Alert";
+
+const ImgContainer = styled.div``;
+
+const StyledImg = styled.img`
+  width: 175px;
+  height: 125px;
+  object-fit: cover;
+`;
 
 const SavedProperties = () => {
   const [savedProperties, setSavedProperties] = useState([]);
@@ -43,6 +52,9 @@ const SavedProperties = () => {
             className="saved-property-card"
             key={property.propertyListing._id}
           >
+            <ImgContainer>
+              <StyledImg src={property.propertyListing.image} alt="" />
+            </ImgContainer>
             <div className="saved-property-card-title">
               {property.propertyListing.title}
             </div>
@@ -58,8 +70,8 @@ const SavedProperties = () => {
             <div className="saved-property-card-price">
               {property.propertyListing.price}
             </div>
-            <div className="saved-property-card-city">
-              {property.propertyListing.city}
+            <div className="saved-property-card-region">
+              {property.propertyListing.region}
             </div>
             <div className="saved-property-card-email">
               <a href={`mailto:${property.propertyListing.email}`}>
