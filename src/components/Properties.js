@@ -65,7 +65,7 @@ const Properties = ({ userId }) => {
   };
 
   return (
-    <Main>
+    <Main className="here-it-is">
       <Hero />
       <PropertiesContainer>
         <SideBar />
