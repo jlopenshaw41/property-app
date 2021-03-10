@@ -4,7 +4,6 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FacebookF } from "@styled-icons/fa-brands";
-import logo from "../images/logo.png";
 
 const NavContainer = styled.div`
   background-color: white;
@@ -18,8 +17,9 @@ const NavContainer = styled.div`
   width: 100%;
 `;
 
-const Logo = styled.img`
-  height: 50px;
+const Logo = styled.h1`
+  font-size: 1.3rem;
+  margin-left: 10px;
 `;
 
 const NavList = styled.ul`
@@ -69,7 +69,7 @@ const NavBar = ({ onLogin, userId, onLogout }) => {
   return (
     <NavContainer>
       <StyledLink className="link" to="/">
-        <Logo src={logo} alt="Logo" data-testid="logo" />
+        <Logo>Maison</Logo>
       </StyledLink>
       <NavBarLinks>
         <NavList>
