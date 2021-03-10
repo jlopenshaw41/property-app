@@ -1,14 +1,63 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/PropertyCard.css";
 import styled from "styled-components";
+import { Email, Star } from "@styled-icons/material";
+
+const StyledPropertyCard = styled.div`
+  width: 190px;
+  height: 310px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  position: relative;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+`;
+
+const StyledPropertyTitle = styled.p`
+  font-style: italic;
+  font-size: 0.9em;
+  margin: 10px 10px;
+`;
+
+const PropertyCardText = styled.p`
+  font-size: 0.9em;
+  margin: 2px 10px;
+`;
 
 const ImgContainer = styled.div``;
 
 const StyledImg = styled.img`
-  width: 175px;
+  width: 190px;
   height: 125px;
   object-fit: cover;
+`;
+
+const EmailIcon = styled(Email)`
+  height: 20px;
+  color: #404040;
+`;
+
+const EmailIconContainer = styled.div`
+  margin: 10px;
+  position: absolute;
+  bottom: 0;
+`;
+
+const SaveButtonContainer = styled.div`
+  margin: 10px 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  align-self: flex-end;
+`;
+
+const StarIcon = styled(Star)`
+  color: #404040;
+  height: 20px;
+`;
+
+const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
 `;
 
 const PropertyCard = (props) => {
@@ -27,39 +76,48 @@ const PropertyCard = (props) => {
   } = props;
 
   return (
-    <div className="property-card">
+    <StyledPropertyCard className="property-card">
       <ImgContainer>
         <StyledImg src={image} alt="" />
       </ImgContainer>
-      <div className="property-card-title">{title}</div>
-      <div className="property-card-type">{type}</div>
-      <div
+      <StyledPropertyTitle className="property-card-title">
+        {title}
+      </StyledPropertyTitle>
+      <PropertyCardText className="property-card-type">{type}</PropertyCardText>
+      <PropertyCardText
         className="property-card-bedrooms"
         data-testid="property-card-bedrooms"
       >
-        {bedrooms}
-      </div>
-      <div
+        {bedrooms} bedrooms
+      </PropertyCardText>
+      <PropertyCardText
         className="property-card-bathrooms"
         data-testid="property-card-bathrooms"
       >
-        {bathrooms}
-      </div>
-      <div className="property-card-price" data-testid="property-card-price">
-        {price}
-      </div>
-      <div className="property-card-region">{region}</div>
-      <div className="property-card-email">
-        <a href={`mailto:${email}`}>{email}</a>
-      </div>
+        {bathrooms} bathrooms
+      </PropertyCardText>
+      <PropertyCardText
+        className="property-card-price"
+        data-testid="property-card-price"
+      >
+        £{price}
+      </PropertyCardText>
+      <PropertyCardText className="property-card-region">
+        {region}
+      </PropertyCardText>
+      <EmailIconContainer className="property-card-email">
+        <a href={`mailto:${email}`}>
+          <EmailIcon />
+        </a>
+      </EmailIconContainer>
       {userId && (
-        <div className="save-button">
-          <button type="button" onClick={() => onSaveProperty(_id)}>
-            Save
-          </button>
-        </div>
+        <SaveButtonContainer className="save-button">
+          <StyledButton type="button" onClick={() => onSaveProperty(_id)}>
+            <StarIcon />
+          </StyledButton>
+        </SaveButtonContainer>
       )}
-    </div>
+    </StyledPropertyCard>
   );
 };
 
