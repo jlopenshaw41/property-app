@@ -81,11 +81,12 @@ const Properties = ({ userId }) => {
               key={property._id}
               _id={property._id}
               title={property.title}
+              image={property.image}
               type={property.type}
               bathrooms={property.bathrooms}
               bedrooms={property.bedrooms}
               price={property.price}
-              city={property.city}
+              region={property.region}
               email={property.email}
               userId={userId}
               onSaveProperty={handleSaveProperty}

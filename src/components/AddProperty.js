@@ -30,7 +30,8 @@ const AddProperty = () => {
     fields: {
       bedrooms: 0,
       bathrooms: 0,
-      city: "Manchester",
+      region: "North West",
+      image: "",
       email: "",
       price: 0,
       title: "",
@@ -47,6 +48,7 @@ const AddProperty = () => {
   const handleAddProperty = (event) => {
     event.preventDefault();
     setAlert({ message: "", isSuccess: false });
+    console.log(fields);
 
     axios
       .post("http://localhost:4000/api/v1/PropertyListing", fields)
@@ -94,6 +96,19 @@ const AddProperty = () => {
           </label>
         </div>
         <div>
+          <label htmlFor="image">
+            Image URL:
+            <input
+              type="text"
+              name="image"
+              id="image"
+              placeholder="enter image url"
+              value={fields.image}
+              onChange={handleFieldChange}
+            />
+          </label>
+        </div>
+        <div>
           <label htmlFor="type">
             Property type:
             <select
@@ -103,13 +118,14 @@ const AddProperty = () => {
               value={fields.type}
               onChange={handleFieldChange}
             >
-              <option value="Flat">Flat</option>
-              <option value="Detached">Detached</option>
-              <option value="Semi-detached">Semi-detached</option>
-              <option value="Terraced">Terraced</option>
-              <option value="End of terrace">End of terrace</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Villa">Villa</option>
+              <option value="Mansion">Mansion</option>
+              <option value="House">House</option>
+              <option value="Semi-detached house">Semi-detached house</option>
+              <option value="Terraced house">Terraced house</option>
+              <option value="Castle">Castle</option>
               <option value="Cottage">Cottage</option>
-              <option value="Bungalow">Bungalow</option>
             </select>
           </label>
         </div>
@@ -156,19 +172,20 @@ const AddProperty = () => {
           </label>
         </div>
         <div>
-          <label htmlFor="city">
-            City:
+          <label htmlFor="region">
+            Region:
             <select
-              data-testid="city-dropdown"
-              id="city"
-              name="city"
-              value={fields.city}
+              id="region"
+              name="region"
+              value={fields.region}
               onChange={handleFieldChange}
             >
-              <option value="Manchester">Manchester</option>
-              <option value="Leeds">Leeds</option>
-              <option value="Sheffield">Sheffield</option>
-              <option value="Liverpool">Liverpool</option>
+              <option value="North West">North West</option>
+              <option value="North East">North East</option>
+              <option value="Midlands">Midlands</option>
+              <option value="East">East</option>
+              <option value="South East"> South East</option>
+              <option value="South West">South West</option>
             </select>
           </label>
         </div>
