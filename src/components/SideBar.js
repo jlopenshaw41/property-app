@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import qs from "qs";
 import styled from "styled-components";
+import { Search } from "@styled-icons/material";
 
 const buildQueryString = (operation, valueObj, search) => {
   const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
@@ -23,13 +24,49 @@ const buildQueryString = (operation, valueObj, search) => {
 const StyledSideBar = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding: 10px;
-  ${"" /* border-right: 1px solid gray; */}
   width: 20%;
+  min-width: 200px;
+`;
+
+const SearchInput = styled.input`
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #a9a9a9;
+  border-right: none;
+  border-radius: 25px 0px 0px 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 5px 5px 10px;
+  outline: none;
+  width: 80%;
+`;
+
+const SearchButton = styled.button`
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #a9a9a9;
+  border-left: none;
+  border-radius: 0px 25px 25px 0px;
+  color: #606060;
+  height: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  position: relative;
+  width: 20%;
+`;
+
+const SearchIcon = styled(Search)`
+  color: #606060;
+  height: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 const StyledSearchForm = styled.form`
   padding: 5px;
+  display: flex;
+  justify-content: center;
+  width: 75%;
 `;
 
 const SideBarLink = styled(Link)`
@@ -65,14 +102,17 @@ const SideBar = () => {
   return (
     <StyledSideBar className="sidebar">
       <StyledSearchForm className="search-form" onSubmit={handleSearch}>
-        <label htmlFor="search-input">
-          <input
-            type="text"
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-        </label>
-        <button type="submit">Search</button>
+        <SearchInput
+          id="search-input"
+          type="text"
+          value={searchText}
+          placeholder="Search"
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+
+        <SearchButton type="submit">
+          <SearchIcon />
+        </SearchButton>
       </StyledSearchForm>
       <SideBarHeading>Filter by region:</SideBarHeading>
       <SideBarLink

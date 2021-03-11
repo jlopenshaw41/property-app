@@ -27,6 +27,10 @@ const Title = styled.h1`
   font-size: 2.2rem;
 `;
 
+const Subheading = styled.h2`
+  font-weight: 300;
+`;
+
 const Hero = () => {
   return (
     <HeroContainer className="hero-container">
@@ -51,7 +55,7 @@ const Hero = () => {
       </StyledCarousel>
       <HeroText>
         <Title>Maison</Title>
-        <h2>find a place to call home...</h2>
+        <Subheading>find a place to call home...</Subheading>
       </HeroText>
     </HeroContainer>
   );
