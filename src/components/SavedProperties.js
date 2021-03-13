@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import Alert from "./Alert";
 
 const ImgContainer = styled.div``;
@@ -11,13 +12,15 @@ const StyledImg = styled.img`
   object-fit: cover;
 `;
 
-const SavedProperties = () => {
+const SavedProperties = ({ userId }) => {
   const [savedProperties, setSavedProperties] = useState([]);
   const [alert, setAlert] = useState({ message: "", isSuccess: true });
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/Favourite?populate=propertyListing")
+      .get(
+        `http://localhost:4000/api/v1/Favourite?query={"fbUserId":"${userId}"}&populate=propertyListing`
+      )
       .then(({ data }) => {
         setSavedProperties(data);
       })
@@ -91,6 +94,10 @@ const SavedProperties = () => {
       })}
     </div>
   );
+};
+
+SavedProperties.propTypes = {
+  userId: PropTypes.string.isRequired,
 };
 
 export default SavedProperties;

@@ -34,7 +34,13 @@ const App = () => {
           <Route
             exact
             path="/saved-properties"
-            render={() => (userId ? <SavedProperties /> : <PermissionDenied />)}
+            render={(props) =>
+              userId ? (
+                <SavedProperties {...props} userId={userId} />
+              ) : (
+                <PermissionDenied />
+              )
+            }
           />
         </Switch>
       </div>
