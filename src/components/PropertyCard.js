@@ -5,11 +5,12 @@ import { Email, Star } from "@styled-icons/material";
 
 const StyledPropertyCard = styled.div`
   width: 190px;
-  height: 310px;
+  height: 320px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
   position: relative;
   font-weight: 300;
   letter-spacing: 0.05em;
+  margin: 10px;
 `;
 
 const StyledPropertyTitle = styled.p`
@@ -113,7 +114,7 @@ const PropertyCard = (props) => {
       {userId && (
         <SaveButtonContainer className="save-button">
           <StyledButton type="button" onClick={() => onSaveProperty(_id)}>
-            <StarIcon />
+            <StarIcon title="Save property" />
           </StyledButton>
         </SaveButtonContainer>
       )}
