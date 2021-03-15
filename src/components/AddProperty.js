@@ -4,25 +4,63 @@ import axios from "axios";
 import Alert from "./Alert";
 
 const AddPropertyContainer = styled.div`
+  background-image: url("https://i.imgur.com/rIGtW0C.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 58px;
+  justify-content: flex-start;
+  margin-top: 55px;
   padding: 100px;
 `;
 
 const AlertContainer = styled.div`
   border: 1px solid red;
-  width: 33%;
-  padding: 30px;
-  height: 50px;
+  width: 50%;
+  padding: 50px;
+  height: 25px;
 `;
 
 const StyledForm = styled.form`
-  border: 1px solid red;
-  padding: 30px;
-  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 50px;
+  width: 50%;
+  height: 60%;
+`;
+
+const StyledHeading = styled.h1`
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  width: 90%;
+`;
+
+const FormRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  width: 90%;
+`;
+
+const StyledInput = styled.input`
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #a9a9a9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 5px 5px 10px;
+  outline: none;
+  width: 90%;
+`;
+
+const StyledLabel = styled.label`
+  width: 75%;
 `;
 
 const AddProperty = () => {
@@ -80,24 +118,25 @@ const AddProperty = () => {
         <Alert message={alert.message} success={alert.isSuccess} />
       </AlertContainer>
       <StyledForm onSubmit={handleAddProperty}>
-        <div>
-          <label htmlFor="title">
-            Property title:
-            <input
+        <StyledHeading>Add a property</StyledHeading>
+        <FormRow>
+          <p>Property title:</p>
+          <StyledLabel htmlFor="title">
+            <StyledInput
               data-testid="property-title-input"
               type="text"
               name="title"
               id="title"
-              placeholder="e.g. 5 bedroom detached house for sale"
+              placeholder="e.g. Detached Georgian farmhouse"
               value={fields.title}
               onChange={handleFieldChange}
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="image">
-            Image URL:
-            <input
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Image URL:</p>
+          <StyledLabel htmlFor="image">
+            <StyledInput
               type="text"
               name="image"
               id="image"
@@ -105,11 +144,11 @@ const AddProperty = () => {
               value={fields.image}
               onChange={handleFieldChange}
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="type">
-            Property type:
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Property type:</p>
+          <StyledLabel htmlFor="type">
             <select
               data-testid="type-dropdown"
               id="type"
@@ -126,12 +165,12 @@ const AddProperty = () => {
               <option value="Castle">Castle</option>
               <option value="Cottage">Cottage</option>
             </select>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="bedrooms">
-            Bedrooms:
-            <input
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Bedrooms:</p>
+          <StyledLabel htmlFor="bedrooms">
+            <StyledInput
               data-testid="bedrooms-input"
               type="number"
               id="bedrooms"
@@ -140,12 +179,12 @@ const AddProperty = () => {
               onChange={handleFieldChange}
               min="0"
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="bathrooms">
-            Bathrooms:
-            <input
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Bathrooms:</p>
+          <StyledLabel htmlFor="bathrooms">
+            <StyledInput
               data-testid="bathrooms-input"
               type="number"
               id="bathrooms"
@@ -154,12 +193,12 @@ const AddProperty = () => {
               onChange={handleFieldChange}
               min="0"
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="price">
-            Price (£):
-            <input
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Price (£):</p>
+          <StyledLabel htmlFor="price">
+            <StyledInput
               data-testid="price-input"
               type="number"
               id="price"
@@ -168,11 +207,11 @@ const AddProperty = () => {
               onChange={handleFieldChange}
               min="0"
             />
-          </label>
-        </div>
-        <div>
-          <label htmlFor="region">
-            Region:
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Region:</p>
+          <StyledLabel htmlFor="region">
             <select
               id="region"
               name="region"
@@ -186,12 +225,12 @@ const AddProperty = () => {
               <option value="South East"> South East</option>
               <option value="South West">South West</option>
             </select>
-          </label>
-        </div>
-        <div>
-          <label htmlFor="email">
-            Contact email:
-            <input
+          </StyledLabel>
+        </FormRow>
+        <FormRow>
+          <p>Contact email:</p>
+          <StyledLabel htmlFor="email">
+            <StyledInput
               data-testid="email-input"
               type="email"
               id="email"
@@ -200,8 +239,8 @@ const AddProperty = () => {
               value={fields.email}
               onChange={handleFieldChange}
             />
-          </label>
-        </div>
+          </StyledLabel>
+        </FormRow>
         <button type="submit" data-testid="submit-button">
           Add
         </button>

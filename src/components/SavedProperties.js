@@ -6,12 +6,22 @@ import { Email, Clear } from "@styled-icons/material";
 import Alert from "./Alert";
 
 const SavedPropertiesContainer = styled.div`
-  border: 1px solid red;
+  margin-top: 55px;
+`;
+
+const StyledHeader = styled.h1`
+  padding-left: 40px;
+  padding-top: 20px;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+`;
+
+const SavedPropertyCardsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding: 30px;
-  margin-top: 55px;
 `;
 
 const StyledSavedPropertyCard = styled.div`
@@ -117,50 +127,53 @@ const SavedProperties = ({ userId }) => {
   }
 
   return (
-    <SavedPropertiesContainer className="saved-properties">
-      {savedProperties.map((property) => {
-        return (
-          <StyledSavedPropertyCard
-            className="saved-property-card"
-            key={property.propertyListing._id}
-          >
-            <ImgContainer>
-              <StyledImg src={property.propertyListing.image} alt="" />
-            </ImgContainer>
-            <StyledSavedPropertyTitle className="saved-property-card-title">
-              {property.propertyListing.title}
-            </StyledSavedPropertyTitle>
-            <StyledPropertyCardText className="saved-property-card-type">
-              {property.propertyListing.type}
-            </StyledPropertyCardText>
-            <StyledPropertyCardText className="saved-property-card-bedrooms">
-              {property.propertyListing.bedrooms} bedrooms
-            </StyledPropertyCardText>
-            <StyledPropertyCardText className="saved-property-card-bathrooms">
-              {property.propertyListing.bathrooms} bathrooms
-            </StyledPropertyCardText>
-            <StyledPropertyCardText className="saved-property-card-price">
-              £{property.propertyListing.price}
-            </StyledPropertyCardText>
-            <StyledPropertyCardText className="saved-property-card-region">
-              {property.propertyListing.region}
-            </StyledPropertyCardText>
-            <EmailIconContainer className="saved-property-card-email">
-              <a href={`mailto:${property.propertyListing.email}`}>
-                <EmailIcon />
-              </a>
-            </EmailIconContainer>
-            <RemoveSavedPropertyButtonContainer className="remove-favourite-button">
-              <RemoveSavedPropertyButton
-                type="button"
-                onClick={() => handleRemoveFavourite(property._id)}
-              >
-                <CrossIcon title="Remove saved property" />
-              </RemoveSavedPropertyButton>
-            </RemoveSavedPropertyButtonContainer>
-          </StyledSavedPropertyCard>
-        );
-      })}
+    <SavedPropertiesContainer>
+      <StyledHeader>Saved properties</StyledHeader>
+      <SavedPropertyCardsContainer className="saved-properties">
+        {savedProperties.map((property) => {
+          return (
+            <StyledSavedPropertyCard
+              className="saved-property-card"
+              key={property.propertyListing._id}
+            >
+              <ImgContainer>
+                <StyledImg src={property.propertyListing.image} alt="" />
+              </ImgContainer>
+              <StyledSavedPropertyTitle className="saved-property-card-title">
+                {property.propertyListing.title}
+              </StyledSavedPropertyTitle>
+              <StyledPropertyCardText className="saved-property-card-type">
+                {property.propertyListing.type}
+              </StyledPropertyCardText>
+              <StyledPropertyCardText className="saved-property-card-bedrooms">
+                {property.propertyListing.bedrooms} bedrooms
+              </StyledPropertyCardText>
+              <StyledPropertyCardText className="saved-property-card-bathrooms">
+                {property.propertyListing.bathrooms} bathrooms
+              </StyledPropertyCardText>
+              <StyledPropertyCardText className="saved-property-card-price">
+                £{property.propertyListing.price}
+              </StyledPropertyCardText>
+              <StyledPropertyCardText className="saved-property-card-region">
+                {property.propertyListing.region}
+              </StyledPropertyCardText>
+              <EmailIconContainer className="saved-property-card-email">
+                <a href={`mailto:${property.propertyListing.email}`}>
+                  <EmailIcon />
+                </a>
+              </EmailIconContainer>
+              <RemoveSavedPropertyButtonContainer className="remove-favourite-button">
+                <RemoveSavedPropertyButton
+                  type="button"
+                  onClick={() => handleRemoveFavourite(property._id)}
+                >
+                  <CrossIcon title="Remove saved property" />
+                </RemoveSavedPropertyButton>
+              </RemoveSavedPropertyButtonContainer>
+            </StyledSavedPropertyCard>
+          );
+        })}
+      </SavedPropertyCardsContainer>
     </SavedPropertiesContainer>
   );
 };

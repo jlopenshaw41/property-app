@@ -20,7 +20,7 @@ const PropertiesContainer = styled.div`
 const PropertyCardsContainer = styled.div`
   display: flex;
   width: 80%;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding: 30px;
 `;
