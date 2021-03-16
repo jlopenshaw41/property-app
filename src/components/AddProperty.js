@@ -31,6 +31,7 @@ const StyledForm = styled.form`
   padding: 50px;
   width: 50%;
   height: 60%;
+  min-height: 560px;
 `;
 
 const StyledHeading = styled.h1`
