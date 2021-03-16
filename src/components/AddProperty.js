@@ -13,13 +13,13 @@ const AddPropertyContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-top: 55px;
-  padding: 100px;
+  padding: 25px 100px;
 `;
 
 const AlertContainer = styled.div`
-  border: 1px solid red;
+  display: flex;
   width: 50%;
-  padding: 50px;
+  padding: 50px 0px;
   height: 25px;
 `;
 
@@ -36,7 +36,8 @@ const StyledForm = styled.form`
 const StyledHeading = styled.h1`
   font-weight: 400;
   letter-spacing: 0.05em;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 15px;
   width: 90%;
 `;
 
@@ -44,12 +45,12 @@ const FormRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 15px 0;
   width: 90%;
 `;
 
 const StyledInput = styled.input`
-  border-radius: 25px;
+  border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #a9a9a9;
   font-family: "Montserrat", sans-serif;
@@ -61,6 +62,35 @@ const StyledInput = styled.input`
 
 const StyledLabel = styled.label`
   width: 75%;
+`;
+
+const StyledDropdown = styled.select`
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #a9a9a9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  padding: 5px 5px 5px 10px;
+  outline: none;
+  width: 94%;
+`;
+
+const StyledParagraph = styled.p`
+  margin: 0px;
+`;
+
+const AddPropertyButton = styled.button`
+  border: 1px solid #404040;
+  background-color: white;
+  color: #404040;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 10px;
+  padding: 8px;
+  width: 25%;
+  min-width: 126px;
 `;
 
 const AddProperty = () => {
@@ -91,7 +121,7 @@ const AddProperty = () => {
       .post("http://localhost:4000/api/v1/PropertyListing", fields)
       .then(() => {
         setAlert({
-          message: "Property added.",
+          message: "Property added",
           isSuccess: true,
         });
       })
@@ -120,7 +150,7 @@ const AddProperty = () => {
       <StyledForm onSubmit={handleAddProperty}>
         <StyledHeading>Add a property</StyledHeading>
         <FormRow>
-          <p>Property title:</p>
+          <StyledParagraph>Property title:</StyledParagraph>
           <StyledLabel htmlFor="title">
             <StyledInput
               data-testid="property-title-input"
@@ -134,22 +164,22 @@ const AddProperty = () => {
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Image URL:</p>
+          <StyledParagraph>Image URL:</StyledParagraph>
           <StyledLabel htmlFor="image">
             <StyledInput
               type="text"
               name="image"
               id="image"
-              placeholder="enter image url"
+              placeholder="e.g. https://i.imgur.com/rIGtW0C.jpg"
               value={fields.image}
               onChange={handleFieldChange}
             />
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Property type:</p>
+          <StyledParagraph>Property type:</StyledParagraph>
           <StyledLabel htmlFor="type">
-            <select
+            <StyledDropdown
               data-testid="type-dropdown"
               id="type"
               name="type"
@@ -164,11 +194,11 @@ const AddProperty = () => {
               <option value="Terraced house">Terraced house</option>
               <option value="Castle">Castle</option>
               <option value="Cottage">Cottage</option>
-            </select>
+            </StyledDropdown>
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Bedrooms:</p>
+          <StyledParagraph>Bedrooms:</StyledParagraph>
           <StyledLabel htmlFor="bedrooms">
             <StyledInput
               data-testid="bedrooms-input"
@@ -182,7 +212,7 @@ const AddProperty = () => {
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Bathrooms:</p>
+          <StyledParagraph>Bathrooms:</StyledParagraph>
           <StyledLabel htmlFor="bathrooms">
             <StyledInput
               data-testid="bathrooms-input"
@@ -196,7 +226,7 @@ const AddProperty = () => {
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Price (£):</p>
+          <StyledParagraph>Price (£):</StyledParagraph>
           <StyledLabel htmlFor="price">
             <StyledInput
               data-testid="price-input"
@@ -210,9 +240,9 @@ const AddProperty = () => {
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Region:</p>
+          <StyledParagraph>Region:</StyledParagraph>
           <StyledLabel htmlFor="region">
-            <select
+            <StyledDropdown
               id="region"
               name="region"
               value={fields.region}
@@ -224,11 +254,11 @@ const AddProperty = () => {
               <option value="East">East</option>
               <option value="South East"> South East</option>
               <option value="South West">South West</option>
-            </select>
+            </StyledDropdown>
           </StyledLabel>
         </FormRow>
         <FormRow>
-          <p>Contact email:</p>
+          <StyledParagraph>Contact email:</StyledParagraph>
           <StyledLabel htmlFor="email">
             <StyledInput
               data-testid="email-input"
@@ -241,9 +271,9 @@ const AddProperty = () => {
             />
           </StyledLabel>
         </FormRow>
-        <button type="submit" data-testid="submit-button">
-          Add
-        </button>
+        <AddPropertyButton type="submit" data-testid="submit-button">
+          Add property
+        </AddPropertyButton>
       </StyledForm>
     </AddPropertyContainer>
   );

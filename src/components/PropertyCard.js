@@ -52,13 +52,11 @@ const SaveButtonContainer = styled.div`
 `;
 
 const StarIcon = styled(Star)`
-  color: #404040;
   height: 20px;
 `;
 
-const StyledButton = styled.button`
-  background-color: transparent;
-  border: none;
+const StyledButton = styled.a`
+  color: #404040;
 `;
 
 const PropertyCard = (props) => {
@@ -69,12 +67,19 @@ const PropertyCard = (props) => {
     type,
     bedrooms,
     bathrooms,
-    price,
     region,
     email,
     userId,
     onSaveProperty,
   } = props;
+
+  let { price } = props;
+
+  const addCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  price = addCommas(price);
 
   return (
     <StyledPropertyCard className="property-card">
@@ -113,8 +118,14 @@ const PropertyCard = (props) => {
       </EmailIconContainer>
       {userId && (
         <SaveButtonContainer className="save-button">
-          <StyledButton type="button" onClick={() => onSaveProperty(_id)}>
-            <StarIcon title="Save property" />
+          <StyledButton
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              onSaveProperty(_id);
+            }}
+          >
+            <StarIcon title="Save property" cursor="pointer" />
           </StyledButton>
         </SaveButtonContainer>
       )}
