@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Email, Star } from "@styled-icons/material";
+import { Email } from "@styled-icons/material";
 
 const StyledPropertyCard = styled.div`
   width: 190px;
@@ -46,20 +46,30 @@ const EmailIconContainer = styled.div`
 const SaveButtonContainer = styled.div`
   margin: 10px 5px;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 2px;
+  right: 3px;
   align-self: flex-end;
 `;
 
-const StarIcon = styled(Star)`
-  height: 20px;
+const AddToSavedPropertiesButton = styled.a`
+  color: #404040;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid #bebebe;
+  padding: 3px;
 `;
 
-const StyledButton = styled.a`
-  color: #404040;
+const RemoveFromSavedPropertiesButton = styled.a`
+  color: #bebebe;
+  font-size: 0.8rem;
+  text-decoration: none;
+  border: 1px solid #bebebe;
+  padding: 3px;
 `;
 
 const PropertyCard = (props) => {
+  const [favourite, setFavourite] = useState(true);
+
   const {
     _id,
     title,
@@ -118,15 +128,30 @@ const PropertyCard = (props) => {
       </EmailIconContainer>
       {userId && (
         <SaveButtonContainer className="save-button">
-          <StyledButton
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              onSaveProperty(_id);
-            }}
-          >
-            <StarIcon title="Save property" cursor="pointer" />
-          </StyledButton>
+          {favourite ? (
+            <AddToSavedPropertiesButton
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                onSaveProperty(_id);
+                setFavourite(!favourite);
+              }}
+            >
+              Save property
+              {/* <StarIconNotFavourite title="Save property" cursor="pointer" /> */}
+            </AddToSavedPropertiesButton>
+          ) : (
+            <RemoveFromSavedPropertiesButton
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              {" "}
+              Added
+              {/* <StarIconFavourite /> */}
+            </RemoveFromSavedPropertiesButton>
+          )}
         </SaveButtonContainer>
       )}
     </StyledPropertyCard>
