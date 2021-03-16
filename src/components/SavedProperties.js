@@ -120,6 +120,11 @@ const SavedProperties = ({ userId }) => {
           isSuccess: false,
         });
       });
+    setSavedProperties((prevSavedProperties) => {
+      return prevSavedProperties.filter(
+        (property) => property._id !== favouriteId
+      );
+    });
   };
 
   if (alert.message) {
