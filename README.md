@@ -6,6 +6,8 @@ Users can view properties for sale, sort, search and filter property results and
 
 As an additional feature, vendors can also add new properties by submitting the 'Add property' form. In the backend, properties are stored in a MongoDB database via an Express API. HTTP requests are made from the frontend using axios. Tested using Jest & React Testing Library, following Test-Driven Development methodology.
 
+I've written a blog post documenting how I built this project - [check it out here](https://jlopenshaw.hashnode.dev/bootcamp-journal-react-property-website-project).
+
 ![GIF showing Property App in action](src/images/propertyApp.gif)
 
 ## Table of contents
